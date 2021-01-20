@@ -1,5 +1,5 @@
 //
-//  ButtonsLayout.swift
+//  ControlsLayout.swift
 //  BlogScenario
 //
 //  Created by  userauto on 17.01.2021.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-final class ButtonsLayout: UIView {
-	var buttons: [UIView]
+final class ControlsLayout: UIView {
+	var controls: [UIView]
 
 	struct Metrics {
 		static let verticalInset: CGFloat = 4.0
 		static let horizontalInset: CGFloat = 4.0
 	}
 
-	init(buttons: [UIView]) {
-		self.buttons = buttons
+	init(controls: [UIView]) {
+		self.controls = controls
 		super.init(frame: .null)
 		configureLayout(frame: frame)
 	}
@@ -43,7 +43,7 @@ final class ButtonsLayout: UIView {
 }
 
 // MARK: - Private
-private extension ButtonsLayout {
+private extension ControlsLayout {
 	private func configureLayout(frame: CGRect) {
 		layer.borderWidth = 2.0
 		layer.borderColor = UIColor.systemGray3.cgColor
@@ -53,7 +53,7 @@ private extension ButtonsLayout {
 		layer.cornerRadius = 8.0
 		translatesAutoresizingMaskIntoConstraints = false
 
-		let stackView = UIStackView(arrangedSubviews: buttons)
+		let stackView = UIStackView(arrangedSubviews: controls)
 		addSubview(stackView)
 
 		stackView.translatesAutoresizingMaskIntoConstraints = false

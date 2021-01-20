@@ -29,11 +29,11 @@ final class RichTextViewCoordinator {
 // MARK: - RichTextView.Coordinator handle toolbar button taps
 extension RichTextViewCoordinator {
 	func didTapEditFont(_ button: ToolbarEditorButton) {
-		self.showButtonsLayout(toolbarButton: button, with: self.makeEditFontButtons)
+		self.showControllsLayout(toolbarButton: button, with: self.makeEditFontButtons)
 	}
 
 	func didTapTextResize(_ button: ToolbarEditorButton) {
-		self.showButtonsLayout(toolbarButton: button, with: self.makeTextResizeButtons)
+		self.showControllsLayout(toolbarButton: button, with: self.makeTextResizeButtons)
 	}
 }
 
@@ -106,8 +106,8 @@ private extension RichTextViewCoordinator {
 		currentButtonLayout?.removeFromSuperview()
 	}
 
-	func showButtonsLayout(toolbarButton: ToolbarEditorButton, with makeButtons: (() -> [EditorButton])) {
-		resetButtonsLayout()
+	func showControllsLayout(toolbarButton: ToolbarEditorButton, with makeButtons: (() -> [EditorButton])) {
+		resetControllsLayout()
 
 		toolbarButtons.forEach {
 			if toolbarButton.hashValue != $0.hashValue {
@@ -130,15 +130,15 @@ private extension RichTextViewCoordinator {
 		}
 
 		let layoutButtons = makeButtons()
-		let buttonLayout = ButtonsLayout(buttons: layoutButtons)
+		let controlsLayout = ControlsLayout(controls: layoutButtons)
 		fontButtons = layoutButtons
 		let visibleViewController = keyboardWindow.visibleViewController()
-		visibleViewController?.view.addSubview(buttonLayout)
-		buttonLayout.setKeyboard(frame: keyboardFrame)
-		currentButtonLayout = buttonLayout
+		visibleViewController?.view.addSubview(controlsLayout)
+		controlsLayout.setKeyboard(frame: keyboardFrame)
+		currentButtonLayout = controlsLayout
 	}
 
-	func resetButtonsLayout() {
+	func resetControllsLayout() {
 		currentButtonLayout?.removeFromSuperview()
 		currentButtonLayout = nil
 	}
@@ -156,8 +156,7 @@ private extension RichTextViewCoordinator {
 	}
 
 	func makeTextResizeButtons() -> [EditorButton] {
-		let fontSizeLabel = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 32.0, height: 32.0)))
-		return [
+		[
 			ToolbarEditorButtonFactory.makeDownscaleButton(),
 			ToolbarEditorButtonFactory.makeUpscaleButton(),
 		]

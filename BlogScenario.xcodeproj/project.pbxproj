@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5220FE2325B83E370078EA20 /* TextFieldControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE2225B83E370078EA20 /* TextFieldControl.swift */; };
 		522A754625B2A6D20010AB7F /* ToolbarEditorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A754525B2A6D20010AB7F /* ToolbarEditorButton.swift */; };
 		522A754B25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A754A25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift */; };
 		5247D0A325B37CF400028489 /* ListFormattingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0A225B37CF400028489 /* ListFormattingProvider.swift */; };
-		5247D0AF25B4A1BA00028489 /* ButtonsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0AE25B4A1BA00028489 /* ButtonsLayout.swift */; };
+		5247D0AF25B4A1BA00028489 /* ControlsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0AE25B4A1BA00028489 /* ControlsLayout.swift */; };
 		5247D0B225B4A93700028489 /* EditorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0B125B4A93700028489 /* EditorButton.swift */; };
 		5247D0B925B5F27C00028489 /* FontTraitCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0B825B5F27C00028489 /* FontTraitCommands.swift */; };
 		5247D0BC25B5F2EB00028489 /* FontStyleCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0BB25B5F2EB00028489 /* FontStyleCommands.swift */; };
@@ -41,10 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5220FE2225B83E370078EA20 /* TextFieldControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldControl.swift; sourceTree = "<group>"; };
 		522A754525B2A6D20010AB7F /* ToolbarEditorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarEditorButton.swift; sourceTree = "<group>"; };
 		522A754A25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarEditorButtonFactory.swift; sourceTree = "<group>"; };
 		5247D0A225B37CF400028489 /* ListFormattingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFormattingProvider.swift; sourceTree = "<group>"; };
-		5247D0AE25B4A1BA00028489 /* ButtonsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsLayout.swift; sourceTree = "<group>"; };
+		5247D0AE25B4A1BA00028489 /* ControlsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsLayout.swift; sourceTree = "<group>"; };
 		5247D0B125B4A93700028489 /* EditorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorButton.swift; sourceTree = "<group>"; };
 		5247D0B825B5F27C00028489 /* FontTraitCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTraitCommands.swift; sourceTree = "<group>"; };
 		5247D0BB25B5F2EB00028489 /* FontStyleCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleCommands.swift; sourceTree = "<group>"; };
@@ -87,15 +89,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		522A754925B2A7F10010AB7F /* Buttons */ = {
+		5220FE2725B83E970078EA20 /* TextFieldControls */ = {
+			isa = PBXGroup;
+			children = (
+				5220FE2225B83E370078EA20 /* TextFieldControl.swift */,
+			);
+			path = TextFieldControls;
+			sourceTree = "<group>";
+		};
+		522A754925B2A7F10010AB7F /* ButtonsControlls */ = {
 			isa = PBXGroup;
 			children = (
 				5247D0B125B4A93700028489 /* EditorButton.swift */,
 				522A754525B2A6D20010AB7F /* ToolbarEditorButton.swift */,
 				522A754A25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift */,
-				5247D0AE25B4A1BA00028489 /* ButtonsLayout.swift */,
+				5247D0AE25B4A1BA00028489 /* ControlsLayout.swift */,
 			);
-			path = Buttons;
+			path = ButtonsControlls;
 			sourceTree = "<group>";
 		};
 		5247D0BE25B62EC600028489 /* Extensions */ = {
@@ -168,7 +178,8 @@
 		525CB73625A897E300DFBFD6 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				522A754925B2A7F10010AB7F /* Buttons */,
+				5220FE2725B83E970078EA20 /* TextFieldControls */,
+				522A754925B2A7F10010AB7F /* ButtonsControlls */,
 				52E8F74425B071A700319E6C /* RichTextView */,
 				525CB72E25A8935C00DFBFD6 /* UmaruGifView.swift */,
 			);
@@ -345,9 +356,10 @@
 				5247D0B225B4A93700028489 /* EditorButton.swift in Sources */,
 				525CB74425A89AC400DFBFD6 /* ScenarioRowView.swift in Sources */,
 				522A754625B2A6D20010AB7F /* ToolbarEditorButton.swift in Sources */,
+				5220FE2325B83E370078EA20 /* TextFieldControl.swift in Sources */,
 				522A754B25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift in Sources */,
 				525CB74725A89DEB00DFBFD6 /* ScenarioList.swift in Sources */,
-				5247D0AF25B4A1BA00028489 /* ButtonsLayout.swift in Sources */,
+				5247D0AF25B4A1BA00028489 /* ControlsLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
