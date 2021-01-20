@@ -58,8 +58,8 @@ final class EditorButton: UIView {
 		button.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -Metrics.buttonOffset),
-			button.topAnchor.constraint(equalTo: self.topAnchor, constant: -Metrics.buttonOffset),
+			button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.buttonOffset),
+			button.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.buttonOffset),
 			button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.buttonOffset),
 			button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metrics.buttonOffset),
 			button.widthAnchor.constraint(equalToConstant: Metrics.width),

@@ -20,7 +20,7 @@ final class TextFieldControl: UIView {
 	struct Metrics {
 		static let insets: CGFloat = 8.0
 		static let height: CGFloat = 24.0
-		static let width: CGFloat = 32.0
+		static let width: CGFloat = 24.0
 	}
 
 	private let label = UILabel()

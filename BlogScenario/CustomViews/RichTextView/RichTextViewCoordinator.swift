@@ -62,26 +62,7 @@ extension RichTextViewCoordinator: EditorViewDelegate {
 
 	func editor(_ editor: EditorView, didChangeSelectionAt range: NSRange, attributes: [NSAttributedString.Key : Any], contentType: EditorContent.Name) {
 
-		updateFontSizeDisplayIfNeeded()
-
-		fontButtons.forEach {
-			switch $0.command {
-			case .bold:
-				$0.isSelected = (attributes[.font] as? UIFont)?.isBold == true
-			case .italics:
-				$0.isSelected = (attributes[.font] as? UIFont)?.isItalics == true
-			case .strikeThrough:
-				$0.isSelected = attributes[.strikethroughStyle] != nil
-			case .underscore:
-				$0.isSelected = attributes[.underlineStyle] != nil
-			case .list(_):
-				break
-			case .upscale:
-				break
-			case .downscale:
-				break
-			}
-		}
+		updateButtonsState(attributes: attributes)
 	}
 }
 
@@ -144,6 +125,12 @@ private extension RichTextViewCoordinator {
 		visibleViewController?.view.addSubview(controlsLayout)
 		controlsLayout.setKeyboard(frame: keyboardFrame)
 		currentButtonLayout = controlsLayout
+
+		view.attributedText.enumerateAttributes(in: view.selectedRange, options: .longestEffectiveRangeNotRequired) { (attributes, range, _) in
+			if range == view.selectedRange {
+				updateButtonsState(attributes: attributes)
+			}
+		}
 	}
 
 	func resetControllsLayout() {
@@ -160,9 +147,37 @@ private extension RichTextViewCoordinator {
 		}
 	}
 
+	func updateButtonsState(attributes: [NSAttributedString.Key : Any]) {
+		updateFontSizeDisplayIfNeeded()
+
+		fontButtons.forEach {
+			switch $0.command {
+			case .bold:
+				$0.isSelected = (attributes[.font] as? UIFont)?.isBold == true
+			case .italics:
+				$0.isSelected = (attributes[.font] as? UIFont)?.isItalics == true
+			case .strikeThrough:
+				$0.isSelected = attributes[.strikethroughStyle] != nil
+			case .underscore:
+				$0.isSelected = attributes[.underlineStyle] != nil
+			case .list(_):
+				break
+			case .upscale:
+				break
+			case .downscale:
+				break
+			}
+		}
+	}
+
 	func updateFontSizeDisplayIfNeeded() {
 		var fontSize: CGFloat? = nil
 		var fontSizeIsSingle = true
+
+		if view.selectedRange.length == 0 {
+			fontSize = (view.typingAttributes[.font] as? UIFont)?.pointSize
+		}
+
 		view.attributedText.enumerateAttribute(.font, in: view.selectedRange, options: .longestEffectiveRangeNotRequired) { (font, range, _) in
 			guard let uiFont = font as? UIFont else {
 				return
@@ -178,7 +193,7 @@ private extension RichTextViewCoordinator {
 		}
 
 		if fontSizeIsSingle, let fontSize = fontSize {
-			fontSizeLabel?.text = String("\(fontSize)")
+			fontSizeLabel?.text = String("\(Int(fontSize))")
 		}
 	}
 }
