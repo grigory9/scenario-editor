@@ -47,18 +47,24 @@ enum ToolbarEditorButtonFactory {
 		}
 	}
 
-	static func makeUpscaleButton() -> EditorButton {
+	/// TODO: https://github.com/grigory9/scenario-editor/issues/1
+	/// Remote didTap. When text changed EditorViewDelegate methods should be called. Otherwise it could result unconsistence
+	static func makeUpscaleButton(didTap: @escaping (() -> Void)) -> EditorButton {
 		EditorButton(command: .upscale, icon: #imageLiteral(resourceName: "upscale")) { button in
 			button.isSelected = true
+			didTap()
 			UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveLinear) {
 				button.isSelected = false
 			} completion: { _ in }
 		}
 	}
 
-	static func makeDownscaleButton() -> EditorButton {
+	/// TODO: https://github.com/grigory9/scenario-editor/issues/1
+	/// Remote didTap. When text changed EditorViewDelegate methods should be called. Otherwise it could result unconsistence
+	static func makeDownscaleButton(didTap: @escaping (() -> Void)) -> EditorButton {
 		EditorButton(command: .downscale, icon: #imageLiteral(resourceName: "downscale")) { button in
 			button.isSelected = true
+			didTap()
 			UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseOut) {
 				button.isSelected = false
 			} completion: { _ in }

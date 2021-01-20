@@ -10,26 +10,25 @@ import UIKit
 final class TextFieldControl: UIView {
 	var text: String {
 		get {
-			self.textField.text ?? ""
+			self.label.text ?? ""
 		}
 		set {
-			self.textField.text = newValue
+			self.label.text = newValue
 		}
 	}
 
 	struct Metrics {
 		static let insets: CGFloat = 8.0
-		static let size: CGFloat = 24.0
+		static let height: CGFloat = 24.0
+		static let width: CGFloat = 32.0
 	}
 
-	private let textField = UITextField()
-	private let textDidChange: ((String) -> ())
+	private let label = UILabel()
 
-	init(textDidChange: @escaping ((String) -> ())) {
-		self.textDidChange = textDidChange
+	init() {
 		super.init(frame: .null)
 
-		self.configure()
+		configure()
 	}
 
 	required init?(coder: NSCoder) {
@@ -37,22 +36,18 @@ final class TextFieldControl: UIView {
 	}
 
 	func configure() {
+		addSubview(label)
 		translatesAutoresizingMaskIntoConstraints = false
-		textField.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint.activate([
-			textField.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.insets),
-			textField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.insets),
-			textField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: Metrics.insets),
-			textField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Metrics.insets),
-			textField.widthAnchor.constraint(equalToConstant: Metrics.size),
-			textField.heightAnchor.constraint(equalToConstant: Metrics.size),
-		])
-	}
-}
-
-// MARK: - UITextViewDelegate
-extension TextFieldControl: UITextViewDelegate {
-	func textViewDidChange(_ textView: UITextView) {
-		textDidChange(textView.text)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate(
+			[
+				label.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.insets),
+				label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.insets),
+				label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metrics.insets),
+				label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.insets),
+				label.widthAnchor.constraint(equalToConstant: Metrics.width),
+				label.heightAnchor.constraint(equalToConstant: Metrics.height),
+			]
+		)
 	}
 }

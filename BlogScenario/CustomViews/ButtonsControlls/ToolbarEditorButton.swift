@@ -8,6 +8,8 @@
 import SwiftUI
 import Proton
 
+/// TODO: https://github.com/grigory9/scenario-editor/issues/2
+/// Refactor toolbar layout of the ToolbarEditorButton
 final class ToolbarEditorButton: UIView {
 
 	private lazy var button: UIButton = {

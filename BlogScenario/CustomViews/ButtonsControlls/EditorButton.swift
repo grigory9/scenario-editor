@@ -10,6 +10,12 @@ import Proton
 
 final class EditorButton: UIView {
 
+	struct Metrics {
+		static let width: CGFloat = 24.0
+		static let height: CGFloat = 24.0
+		static let buttonOffset: CGFloat = 8.0
+	}
+
 	private lazy var button: UIButton = {
 		let button = UIButton()
 		self.addSubview(button)
@@ -52,12 +58,12 @@ final class EditorButton: UIView {
 		button.translatesAutoresizingMaskIntoConstraints = false
 
 		NSLayoutConstraint.activate([
-			button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-			button.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-			button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-			button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-			button.widthAnchor.constraint(equalToConstant: 24.0),
-			button.heightAnchor.constraint(equalToConstant: 24.0),
+			button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -Metrics.buttonOffset),
+			button.topAnchor.constraint(equalTo: self.topAnchor, constant: -Metrics.buttonOffset),
+			button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.buttonOffset),
+			button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metrics.buttonOffset),
+			button.widthAnchor.constraint(equalToConstant: Metrics.width),
+			button.heightAnchor.constraint(equalToConstant: Metrics.height),
 		])
 
 		button.backgroundColor = UIColor.clear

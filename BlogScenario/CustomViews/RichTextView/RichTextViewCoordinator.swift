@@ -13,6 +13,7 @@ final class RichTextViewCoordinator {
 	let textDidChange: (EditorView) -> Void
 	var toolbarButtons: [ToolbarEditorButton] = []
 	var fontButtons: [EditorButton] = []
+	var fontSizeLabel: TextFieldControl? = nil
 	var currentButtonLayout: UIView? = nil
 	var keyboardFrame: CGRect? = nil
 
@@ -29,11 +30,11 @@ final class RichTextViewCoordinator {
 // MARK: - RichTextView.Coordinator handle toolbar button taps
 extension RichTextViewCoordinator {
 	func didTapEditFont(_ button: ToolbarEditorButton) {
-		self.showControllsLayout(toolbarButton: button, with: self.makeEditFontButtons)
+		showControllsLayout(toolbarButton: button, with: makeEditFontButtons)
 	}
 
 	func didTapTextResize(_ button: ToolbarEditorButton) {
-		self.showControllsLayout(toolbarButton: button, with: self.makeTextResizeButtons)
+		showControllsLayout(toolbarButton: button, with: makeTextResizeButtons, other: [makeFontLabel()])
 	}
 }
 
@@ -60,6 +61,9 @@ extension RichTextViewCoordinator: EditorViewDelegate {
 	}
 
 	func editor(_ editor: EditorView, didChangeSelectionAt range: NSRange, attributes: [NSAttributedString.Key : Any], contentType: EditorContent.Name) {
+
+		updateFontSizeDisplayIfNeeded()
+
 		fontButtons.forEach {
 			switch $0.command {
 			case .bold:
@@ -104,9 +108,10 @@ private extension RichTextViewCoordinator {
 	@objc
 	func keyboardWillHide(_ notification : Notification?) -> Void {
 		currentButtonLayout?.removeFromSuperview()
+		fontSizeLabel = nil
 	}
 
-	func showControllsLayout(toolbarButton: ToolbarEditorButton, with makeButtons: (() -> [EditorButton])) {
+	func showControllsLayout(toolbarButton: ToolbarEditorButton, with makeButtons: (() -> [EditorButton]), other controlls: [UIView] = []) {
 		resetControllsLayout()
 
 		toolbarButtons.forEach {
@@ -129,9 +134,12 @@ private extension RichTextViewCoordinator {
 			return
 		}
 
-		let layoutButtons = makeButtons()
-		let controlsLayout = ControlsLayout(controls: layoutButtons)
-		fontButtons = layoutButtons
+		fontButtons = makeButtons()
+
+		var viewsToAdd = fontButtons.map { $0 as UIView }
+		viewsToAdd.append(contentsOf: controlls)
+
+		let controlsLayout = ControlsLayout(controls: viewsToAdd)
 		let visibleViewController = keyboardWindow.visibleViewController()
 		visibleViewController?.view.addSubview(controlsLayout)
 		controlsLayout.setKeyboard(frame: keyboardFrame)
@@ -141,6 +149,37 @@ private extension RichTextViewCoordinator {
 	func resetControllsLayout() {
 		currentButtonLayout?.removeFromSuperview()
 		currentButtonLayout = nil
+	}
+
+	func fontValueDidChange(pointSize: CGFloat) {
+		view.attributedText.enumerateAttribute(.font, in: view.selectedRange, options: .longestEffectiveRangeNotRequired) { font, range, _ in
+			if let font = font as? UIFont {
+				let newFont = font.withSize(pointSize)
+				view.addAttribute(.font, value: newFont, at: range)
+			}
+		}
+	}
+
+	func updateFontSizeDisplayIfNeeded() {
+		var fontSize: CGFloat? = nil
+		var fontSizeIsSingle = true
+		view.attributedText.enumerateAttribute(.font, in: view.selectedRange, options: .longestEffectiveRangeNotRequired) { (font, range, _) in
+			guard let uiFont = font as? UIFont else {
+				return
+			}
+			guard fontSize != nil else {
+				fontSize = uiFont.pointSize
+				return
+			}
+
+			if fontSize != uiFont.pointSize {
+				fontSizeIsSingle = false
+			}
+		}
+
+		if fontSizeIsSingle, let fontSize = fontSize {
+			fontSizeLabel?.text = String("\(fontSize)")
+		}
 	}
 }
 
@@ -157,8 +196,15 @@ private extension RichTextViewCoordinator {
 
 	func makeTextResizeButtons() -> [EditorButton] {
 		[
-			ToolbarEditorButtonFactory.makeDownscaleButton(),
-			ToolbarEditorButtonFactory.makeUpscaleButton(),
+			ToolbarEditorButtonFactory.makeDownscaleButton { [weak self] in self?.updateFontSizeDisplayIfNeeded() },
+			ToolbarEditorButtonFactory.makeUpscaleButton { [weak self] in self?.updateFontSizeDisplayIfNeeded() },
 		]
+	}
+
+	func makeFontLabel() -> TextFieldControl {
+		let fontSizeLabel = TextFieldControl()
+		self.fontSizeLabel = fontSizeLabel
+		updateFontSizeDisplayIfNeeded()
+		return fontSizeLabel
 	}
 }
