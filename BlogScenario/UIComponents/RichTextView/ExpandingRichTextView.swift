@@ -9,9 +9,10 @@ import SwiftUI
 import Proton
 
 struct ExpandingRichTextView: View {
-	let minHeight: CGFloat = 60
 	@Binding var text: String
+	
 	@State private var height: CGFloat?
+	private let minHeight: CGFloat = 60
 
 	var body: some View {
 		RichTextView(text: $text, textDidChange: self.textDidChange)

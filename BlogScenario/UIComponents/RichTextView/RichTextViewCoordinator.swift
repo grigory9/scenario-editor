@@ -27,7 +27,7 @@ final class RichTextViewCoordinator {
 	}
 }
 
-// MARK: - RichTextView.Coordinator handle toolbar button taps
+// MARK: - RichTextViewCoordinator handle toolbar button taps
 extension RichTextViewCoordinator {
 	func didTapEditFont(_ button: ToolbarEditorButton) {
 		showControllsLayout(toolbarButton: button, with: makeEditFontButtons)
@@ -61,12 +61,11 @@ extension RichTextViewCoordinator: EditorViewDelegate {
 	}
 
 	func editor(_ editor: EditorView, didChangeSelectionAt range: NSRange, attributes: [NSAttributedString.Key : Any], contentType: EditorContent.Name) {
-
 		updateButtonsState(attributes: attributes)
 	}
 }
 
-// MARK: - Private RichTextView.Coordinator
+// MARK: - Private RichTextViewCoordinator
 private extension RichTextViewCoordinator {
 	@objc
 	func keyboardWillShow(_ notification : Notification?) -> Void {
@@ -198,7 +197,7 @@ private extension RichTextViewCoordinator {
 	}
 }
 
-// MARK: - Private RichTextView.Coordinator make methods
+// MARK: - Private RichTextViewCoordinator make methods
 private extension RichTextViewCoordinator {
 	func makeEditFontButtons() -> [EditorButton] {
 		[

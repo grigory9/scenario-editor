@@ -9,24 +9,27 @@ import SwiftUI
 import Proton
 import UIKit
 
-final class RichTextView: UIViewRepresentable {
-	typealias UIViewType = EditorView
-	typealias Coordinator = RichTextViewCoordinator
+final class RichTextView {
+	private let textDidChange: (EditorView) -> Void
 
-	let textDidChange: (EditorView) -> Void
-
-	let view = EditorView()
-	var toolbarButtons: [ToolbarEditorButton] = []
+	private let view = EditorView()
+	private var toolbarButtons: [ToolbarEditorButton] = []
 
 	@Binding var text: String
-
-	func makeCoordinator() -> Coordinator {
-		Coordinator(view: view, textDidChange: textDidChange)
-	}
 
 	init(text: Binding<String>, textDidChange: @escaping (EditorView) -> Void) {
 		self.textDidChange = textDidChange
 		self._text = text
+	}
+}
+
+// MARK: - UIViewRepresentable
+extension RichTextView: UIViewRepresentable {
+	typealias UIViewType = EditorView
+	typealias Coordinator = RichTextViewCoordinator
+
+	func makeCoordinator() -> Coordinator {
+		Coordinator(view: view, textDidChange: textDidChange)
 	}
 
 	func updateUIView(_ uiView: EditorView, context: Context) {
@@ -51,8 +54,11 @@ final class RichTextView: UIViewRepresentable {
 
 		return view
 	}
+}
 
-	private func makeToolBar(didTapEditFont: @escaping ((ToolbarEditorButton) -> Void),
+// MARK: - Private
+private extension RichTextView {
+	func makeToolBar(didTapEditFont: @escaping ((ToolbarEditorButton) -> Void),
 							 didTapTextResize: @escaping ((ToolbarEditorButton) -> Void)) -> UIToolbar {
 		let toolBar = UIToolbar()
 

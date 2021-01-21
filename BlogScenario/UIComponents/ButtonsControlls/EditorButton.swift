@@ -16,13 +16,6 @@ final class EditorButton: UIView {
 		static let buttonOffset: CGFloat = 8.0
 	}
 
-	private lazy var button: UIButton = {
-		let button = UIButton()
-		self.addSubview(button)
-		button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
-		return button
-	}()
-
 	var didTapAction: ((EditorButton) -> Void)
 
 	var isSelected: Bool = false {
@@ -35,6 +28,13 @@ final class EditorButton: UIView {
 
 	let command: EditorExecCommand
 
+	private lazy var button: UIButton = {
+		let button = UIButton()
+		self.addSubview(button)
+		button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+		return button
+	}()
+
 	init(command: EditorExecCommand, icon: UIImage, didTapAction: @escaping ((EditorButton) -> Void)) {
 		self.didTapAction = didTapAction
 		self.command = command
@@ -46,14 +46,17 @@ final class EditorButton: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+}
 
+// MARK: - Private
+private extension EditorButton {
 	@objc
 	func didTap() {
 		command.exec()
 		didTapAction(self)
 	}
 
-	private func configure() {
+	func configure() {
 		translatesAutoresizingMaskIntoConstraints = false
 		button.translatesAutoresizingMaskIntoConstraints = false
 
@@ -70,4 +73,3 @@ final class EditorButton: UIView {
 		self.layer.cornerRadius = 8.0
 	}
 }
-

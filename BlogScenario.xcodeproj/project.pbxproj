@@ -147,7 +147,7 @@
 				525CB73C25A898CE00DFBFD6 /* Utils */,
 				525CB73825A8980A00DFBFD6 /* Model */,
 				525CB73725A897FC00DFBFD6 /* Modules */,
-				525CB73625A897E300DFBFD6 /* CustomViews */,
+				525CB73625A897E300DFBFD6 /* UIComponents */,
 				5251DE6E25A786F1002128ED /* Assets.xcassets */,
 				525CB73225A893AF00DFBFD6 /* UmaruGif.gif */,
 				5251DE6A25A786EE002128ED /* BlogScenarioApp.swift */,
@@ -175,7 +175,7 @@
 			path = GifPlayer;
 			sourceTree = "<group>";
 		};
-		525CB73625A897E300DFBFD6 /* CustomViews */ = {
+		525CB73625A897E300DFBFD6 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
 				5220FE2725B83E970078EA20 /* TextFieldControls */,
@@ -183,7 +183,7 @@
 				52E8F74425B071A700319E6C /* RichTextView */,
 				525CB72E25A8935C00DFBFD6 /* UmaruGifView.swift */,
 			);
-			path = CustomViews;
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		525CB73725A897FC00DFBFD6 /* Modules */ = {

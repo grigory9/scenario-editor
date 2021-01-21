@@ -11,6 +11,8 @@ final class ControlsLayout: UIView {
 	var controls: [UIView]
 
 	struct Metrics {
+		static let stackViewSpacing: CGFloat = 4.0
+		static let stackViewOffset: CGFloat = 8.0
 		static let verticalInset: CGFloat = 4.0
 		static let horizontalInset: CGFloat = 4.0
 	}
@@ -27,7 +29,7 @@ final class ControlsLayout: UIView {
 
 	func setKeyboard(frame: CGRect) {
 		let bottomConstraint = self.superview?.bottomAnchor.constraint(equalTo: self.topAnchor, constant: (frame.maxY - frame.minY))
-		self.superview?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -4.0).isActive = true
+		self.superview?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -Metrics.horizontalInset).isActive = true
 		bottomConstraint?.isActive = true
 		self.superview?.layoutIfNeeded()
 
@@ -57,13 +59,13 @@ private extension ControlsLayout {
 		addSubview(stackView)
 
 		stackView.translatesAutoresizingMaskIntoConstraints = false
-		stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-		stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
-		stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-		stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+		stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.stackViewOffset).isActive = true
+		stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.stackViewOffset).isActive = true
+		stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.stackViewOffset).isActive = true
+		stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metrics.stackViewOffset).isActive = true
 		stackView.alignment = .center
 		stackView.distribution = .equalSpacing
 		stackView.axis = .horizontal
-		stackView.spacing = 4.0
+		stackView.spacing = Metrics.stackViewSpacing
 	}
 }
