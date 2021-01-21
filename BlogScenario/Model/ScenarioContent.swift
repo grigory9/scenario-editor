@@ -7,32 +7,27 @@
 
 import Foundation
 
-final class Theme: ObservableObject, Identifiable, Hashable {
+final class ScenarioContent: ObservableObject, Identifiable, Hashable {
 
 	var id: Int
 	
-	@Published var name: String
 	@Published var text: String
 
-	init(dto: ThemeDto) {
+	init(dto: ScenarioContentDto) {
 		self.id = dto.id
-		self.name = dto.name
 		self.text = dto.text
 	}
 
-	static func == (lhs: Theme, rhs: Theme) -> Bool {
+	static func == (lhs: ScenarioContent, rhs: ScenarioContent) -> Bool {
 		lhs.id == rhs.id
 	}
 
 	func hash(into hasher: inout Hasher) {
 		hasher.combine(self.id)
-		hasher.combine(self.name)
 	}
 }
 
-
-struct ThemeDto: Hashable, Codable, Identifiable {
+struct ScenarioContentDto: Hashable, Codable, Identifiable {
 	var id: Int
-	var name: String
 	var text: String
 }

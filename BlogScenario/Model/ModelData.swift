@@ -16,7 +16,6 @@ final class ModelData: ObservableObject {
 		let scenarioDtos: [ScenarioDto] = load("scenarioData.json")
 		self.scenarios = scenarioDtos.map { Scenario(dto: $0) }
 	}
-
 }
 
 

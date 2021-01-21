@@ -12,21 +12,13 @@ struct ScenarioDetailsView: View {
 
     var body: some View {
 		VStack {
-			forEach
+			ScrollView {
+				ExpandingRichTextView(text: $scenario.content.text)
+			}
+			Spacer()
 		}
 		.navigationTitle("Themes")
 		.navigationBarTitleDisplayMode(.inline)
-	}
-
-	var forEach: some View {
-		ScrollView {
-			ForEach(scenario.themes.indices) { index in
-				ThemeRowView(text: $scenario.themes[index].text,
-							 name: $scenario.themes[index].name)
-					.animation(.linear(duration: 0.1))
-			}
-		}
-		.padding(8)
 	}
 }
 
