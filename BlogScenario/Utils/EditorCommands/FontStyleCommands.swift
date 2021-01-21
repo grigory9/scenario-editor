@@ -28,7 +28,11 @@ final class FontStyleToggleCommand: EditorCommand {
 		}
 
 		if selectedText.length == 0 {
-			editor.typingAttributes[key] = value
+			if editor.typingAttributes[key] != nil {
+				editor.typingAttributes.removeValue(forKey: key)
+			} else {
+				editor.typingAttributes[key] = value
+			}
 			return
 		}
 
