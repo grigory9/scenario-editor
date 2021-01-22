@@ -13,9 +13,9 @@ final class FontStyleToggleCommand: EditorCommand {
 	lazy var name = CommandName(rawValue: key.rawValue)
 
 	let key: NSAttributedString.Key
-	let value: Int
+	let value: Any
 
-	init(key: NSAttributedString.Key, value: Int) {
+	init(key: NSAttributedString.Key, value: Any) {
 		self.key = key
 		self.value = value
 	}

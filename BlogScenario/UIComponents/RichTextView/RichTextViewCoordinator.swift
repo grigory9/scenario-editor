@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import Proton
 
 final class RichTextViewCoordinator {
@@ -16,14 +17,22 @@ final class RichTextViewCoordinator {
 	var fontSizeLabel: TextFieldControl? = nil
 	var currentButtonLayout: UIView? = nil
 	var keyboardFrame: CGRect? = nil
+	@Binding var text: String
 
 	let view: EditorView
 
-	init(view: EditorView, textDidChange: @escaping (EditorView) -> Void) {
+	init(view: EditorView, textDidChange: @escaping (EditorView) -> Void, text: Binding<String>) {
 		self.textDidChange = textDidChange
 		self.view = view
+		self._text = text
+		extractContents()
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+	}
+
+	deinit {
+		print("deinit")
+		saveContents()
 	}
 }
 
@@ -35,6 +44,37 @@ extension RichTextViewCoordinator {
 
 	func didTapTextResize(_ button: ToolbarEditorButton) {
 		showControllsLayout(toolbarButton: button, with: makeTextResizeButtons, other: [makeFontLabel()])
+	}
+
+	func saveContents() {
+		let value = view.transformContents(using: JSONEncoder())
+		let data = try! JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+		let jsonString = String(data: data, encoding: .utf8)!
+		let printableContents = """
+			{ "contents":  \(jsonString) }
+		"""
+		print(printableContents)
+		text = printableContents
+	}
+
+	func extractContents() {
+		guard text.count != 0 else {
+			return
+		}
+
+		guard let data = text.data(using: .utf8) else  {
+			assertionFailure("Cannot create data from given string = \(text)")
+			return
+		}
+
+		guard let encodedContents = try! JSONSerialization.jsonObject(with: data, options: []) as? JSON else {
+			assertionFailure("Cannot create data from given string = \(text)")
+			return
+		}
+
+		let decodedText = EditorContentJSONDecoder().decode(mode: .editor, maxSize: view.frame.size, value: encodedContents)
+		print(text)
+		view.attributedText = decodedText
 	}
 }
 

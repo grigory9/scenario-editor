@@ -17,8 +17,15 @@ struct ScenarioDetailsView: View {
 			}
 			Spacer()
 		}
-		.navigationTitle("Themes")
+		.navigationTitle("Text")
+		.navigationBarItems(trailing: saveButton)
 		.navigationBarTitleDisplayMode(.inline)
+	}
+
+	var saveButton: some View {
+		Button("Snapshot") {
+			
+		}
 	}
 }
 

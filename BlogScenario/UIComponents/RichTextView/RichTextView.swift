@@ -29,7 +29,7 @@ extension RichTextView: UIViewRepresentable {
 	typealias Coordinator = RichTextViewCoordinator
 
 	func makeCoordinator() -> Coordinator {
-		Coordinator(view: view, textDidChange: textDidChange)
+		Coordinator(view: view, textDidChange: textDidChange, text: $text)
 	}
 
 	func updateUIView(_ uiView: EditorView, context: Context) {
@@ -38,16 +38,17 @@ extension RichTextView: UIViewRepresentable {
 
 	func makeUIView(context: Context) -> EditorView {
 		view.delegate = context.coordinator
-		view.placeholderText = NSAttributedString(string: text)
-		view.attributedText = NSAttributedString(string: text)
 
 		let listFormattingProvider = ListFormattingProvider()
 		context.coordinator.listFormattingProvider = listFormattingProvider
 		view.listFormattingProvider = listFormattingProvider
 		view.registerProcessor(ListTextProcessor())
 
-		let toolBar = makeToolBar(didTapEditFont: context.coordinator.didTapEditFont,
-								  didTapTextResize: context.coordinator.didTapTextResize)
+		let coordinator = context.coordinator
+		let toolBar = makeToolBar(
+			didTapEditFont: { [weak coordinator] in coordinator?.didTapEditFont($0) },
+			didTapTextResize: { [weak coordinator] in coordinator?.didTapTextResize($0) }
+		)
 		context.coordinator.toolbarButtons = toolbarButtons
 
 		view.editorInputAccessoryView = toolBar
@@ -59,7 +60,7 @@ extension RichTextView: UIViewRepresentable {
 // MARK: - Private
 private extension RichTextView {
 	func makeToolBar(didTapEditFont: @escaping ((ToolbarEditorButton) -> Void),
-							 didTapTextResize: @escaping ((ToolbarEditorButton) -> Void)) -> UIToolbar {
+					 didTapTextResize: @escaping ((ToolbarEditorButton) -> Void)) -> UIToolbar {
 		let toolBar = UIToolbar()
 
 		toolbarButtons = [

@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		5220FE2325B83E370078EA20 /* TextFieldControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE2225B83E370078EA20 /* TextFieldControl.swift */; };
+		5220FE4825B9B1860078EA20 /* ParagraphStyleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE4125B9B1860078EA20 /* ParagraphStyleDecoder.swift */; };
+		5220FE4A25B9B1860078EA20 /* UIFontDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE4325B9B1860078EA20 /* UIFontDecoder.swift */; };
+		5220FE4B25B9B1860078EA20 /* TextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE4425B9B1860078EA20 /* TextDecoder.swift */; };
+		5220FE4C25B9B1860078EA20 /* AttributesDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE4525B9B1860078EA20 /* AttributesDecoding.swift */; };
+		5220FE4D25B9B1860078EA20 /* ParagraphDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE4625B9B1860078EA20 /* ParagraphDecoder.swift */; };
+		5220FE4E25B9B1860078EA20 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE4725B9B1860078EA20 /* JSONDecoder.swift */; };
+		5220FE5525B9B1940078EA20 /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE5025B9B1940078EA20 /* TextEncoder.swift */; };
+		5220FE5625B9B1940078EA20 /* ParagraphEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE5125B9B1940078EA20 /* ParagraphEncoder.swift */; };
+		5220FE5825B9B1940078EA20 /* ParagraphStyle+Codables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE5325B9B1940078EA20 /* ParagraphStyle+Codables.swift */; };
+		5220FE5925B9B1940078EA20 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE5425B9B1940078EA20 /* JSONEncoder.swift */; };
 		522A754625B2A6D20010AB7F /* ToolbarEditorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A754525B2A6D20010AB7F /* ToolbarEditorButton.swift */; };
 		522A754B25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A754A25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift */; };
 		5247D0A325B37CF400028489 /* ListFormattingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0A225B37CF400028489 /* ListFormattingProvider.swift */; };
@@ -42,6 +52,16 @@
 
 /* Begin PBXFileReference section */
 		5220FE2225B83E370078EA20 /* TextFieldControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldControl.swift; sourceTree = "<group>"; };
+		5220FE4125B9B1860078EA20 /* ParagraphStyleDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphStyleDecoder.swift; sourceTree = "<group>"; };
+		5220FE4325B9B1860078EA20 /* UIFontDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontDecoder.swift; sourceTree = "<group>"; };
+		5220FE4425B9B1860078EA20 /* TextDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDecoder.swift; sourceTree = "<group>"; };
+		5220FE4525B9B1860078EA20 /* AttributesDecoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributesDecoding.swift; sourceTree = "<group>"; };
+		5220FE4625B9B1860078EA20 /* ParagraphDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphDecoder.swift; sourceTree = "<group>"; };
+		5220FE4725B9B1860078EA20 /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		5220FE5025B9B1940078EA20 /* TextEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEncoder.swift; sourceTree = "<group>"; };
+		5220FE5125B9B1940078EA20 /* ParagraphEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphEncoder.swift; sourceTree = "<group>"; };
+		5220FE5325B9B1940078EA20 /* ParagraphStyle+Codables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParagraphStyle+Codables.swift"; sourceTree = "<group>"; };
+		5220FE5425B9B1940078EA20 /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
 		522A754525B2A6D20010AB7F /* ToolbarEditorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarEditorButton.swift; sourceTree = "<group>"; };
 		522A754A25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarEditorButtonFactory.swift; sourceTree = "<group>"; };
 		5247D0A225B37CF400028489 /* ListFormattingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFormattingProvider.swift; sourceTree = "<group>"; };
@@ -93,6 +113,39 @@
 				5220FE2225B83E370078EA20 /* TextFieldControl.swift */,
 			);
 			path = TextFieldControls;
+			sourceTree = "<group>";
+		};
+		5220FE3E25B9B1380078EA20 /* TextSerialization */ = {
+			isa = PBXGroup;
+			children = (
+				5220FE4025B9B1570078EA20 /* Decode */,
+				5220FE3F25B9B1520078EA20 /* Encode */,
+			);
+			path = TextSerialization;
+			sourceTree = "<group>";
+		};
+		5220FE3F25B9B1520078EA20 /* Encode */ = {
+			isa = PBXGroup;
+			children = (
+				5220FE5425B9B1940078EA20 /* JSONEncoder.swift */,
+				5220FE5125B9B1940078EA20 /* ParagraphEncoder.swift */,
+				5220FE5325B9B1940078EA20 /* ParagraphStyle+Codables.swift */,
+				5220FE5025B9B1940078EA20 /* TextEncoder.swift */,
+			);
+			path = Encode;
+			sourceTree = "<group>";
+		};
+		5220FE4025B9B1570078EA20 /* Decode */ = {
+			isa = PBXGroup;
+			children = (
+				5220FE4525B9B1860078EA20 /* AttributesDecoding.swift */,
+				5220FE4725B9B1860078EA20 /* JSONDecoder.swift */,
+				5220FE4625B9B1860078EA20 /* ParagraphDecoder.swift */,
+				5220FE4125B9B1860078EA20 /* ParagraphStyleDecoder.swift */,
+				5220FE4425B9B1860078EA20 /* TextDecoder.swift */,
+				5220FE4325B9B1860078EA20 /* UIFontDecoder.swift */,
+			);
+			path = Decode;
 			sourceTree = "<group>";
 		};
 		522A754925B2A7F10010AB7F /* ButtonsControlls */ = {
@@ -207,6 +260,7 @@
 		525CB73C25A898CE00DFBFD6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5220FE3E25B9B1380078EA20 /* TextSerialization */,
 				52E8F74A25B08A0C00319E6C /* EditorCommands */,
 				525CB72725A892DD00DFBFD6 /* GifPlayer */,
 				52E8F73525ADA86B00319E6C /* ViewHeightKey.swift */,
@@ -331,8 +385,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5247D0C125B62EDA00028489 /* UIWindow.swift in Sources */,
+				5220FE4B25B9B1860078EA20 /* TextDecoder.swift in Sources */,
 				525CB72925A892F200DFBFD6 /* GifPlayerView.swift in Sources */,
 				5247D0A325B37CF400028489 /* ListFormattingProvider.swift in Sources */,
+				5220FE4C25B9B1860078EA20 /* AttributesDecoding.swift in Sources */,
+				5220FE5525B9B1940078EA20 /* TextEncoder.swift in Sources */,
 				52E8F74C25B08A1600319E6C /* EditorExecCommand.swift in Sources */,
 				5251DE6D25A786EE002128ED /* ContentView.swift in Sources */,
 				525CB73E25A898D700DFBFD6 /* ModelData.swift in Sources */,
@@ -343,17 +400,24 @@
 				525CB74A25A89FAA00DFBFD6 /* ScenarioDetailsView.swift in Sources */,
 				5251DE6B25A786EE002128ED /* BlogScenarioApp.swift in Sources */,
 				5247D0B925B5F27C00028489 /* FontTraitCommands.swift in Sources */,
+				5220FE4A25B9B1860078EA20 /* UIFontDecoder.swift in Sources */,
+				5220FE5825B9B1940078EA20 /* ParagraphStyle+Codables.swift in Sources */,
+				5220FE4825B9B1860078EA20 /* ParagraphStyleDecoder.swift in Sources */,
+				5220FE5625B9B1940078EA20 /* ParagraphEncoder.swift in Sources */,
 				5247D0D025B7081100028489 /* FontResizeCommand.swift in Sources */,
 				52E8F73A25ADB6DD00319E6C /* RichTextView.swift in Sources */,
 				5247D0C825B62F8D00028489 /* RichTextViewCoordinator.swift in Sources */,
+				5220FE5925B9B1940078EA20 /* JSONEncoder.swift in Sources */,
 				525CB73A25A8981800DFBFD6 /* Scenario.swift in Sources */,
 				5247D0BC25B5F2EB00028489 /* FontStyleCommands.swift in Sources */,
 				525CB72F25A8935C00DFBFD6 /* UmaruGifView.swift in Sources */,
 				5247D0B225B4A93700028489 /* EditorButton.swift in Sources */,
 				525CB74425A89AC400DFBFD6 /* ScenarioRowView.swift in Sources */,
 				522A754625B2A6D20010AB7F /* ToolbarEditorButton.swift in Sources */,
+				5220FE4E25B9B1860078EA20 /* JSONDecoder.swift in Sources */,
 				5220FE2325B83E370078EA20 /* TextFieldControl.swift in Sources */,
 				522A754B25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift in Sources */,
+				5220FE4D25B9B1860078EA20 /* ParagraphDecoder.swift in Sources */,
 				525CB74725A89DEB00DFBFD6 /* ScenarioList.swift in Sources */,
 				5247D0AF25B4A1BA00028489 /* ControlsLayout.swift in Sources */,
 			);
