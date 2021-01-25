@@ -27,6 +27,7 @@ struct EditorContentJSONDecoder: EditorContentDecoding {
     static let contentDecoders: [EditorContent.Name: AnyEditorContentDecoding<JSON>] = [
         EditorContent.Name.paragraph: AnyEditorContentDecoding(ParagraphDecoder()),
         EditorContent.Name.text: AnyEditorContentDecoding(TextDecoder()),
+		EditorContent.Name.newline: AnyEditorContentDecoding(NewLineDecoder()),
     ]
 
     static let attributeDecoders: [String: AnyAttributedStringAttributeDecoding<JSON>] = [

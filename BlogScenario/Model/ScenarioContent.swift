@@ -9,13 +9,18 @@ import Foundation
 
 final class ScenarioContent: ObservableObject, Identifiable, Hashable {
 
-	var id: Int
+	var id: UUID
 	
 	@Published var text: String
 
 	init(dto: ScenarioContentDto) {
-		self.id = dto.id
-		self.text = dto.text
+		id = dto.id
+		text = dto.text
+	}
+
+	init() {
+		id = UUID()
+		text = ""
 	}
 
 	static func == (lhs: ScenarioContent, rhs: ScenarioContent) -> Bool {
@@ -23,11 +28,6 @@ final class ScenarioContent: ObservableObject, Identifiable, Hashable {
 	}
 
 	func hash(into hasher: inout Hasher) {
-		hasher.combine(self.id)
+		hasher.combine(id)
 	}
-}
-
-struct ScenarioContentDto: Hashable, Codable, Identifiable {
-	var id: Int
-	var text: String
 }

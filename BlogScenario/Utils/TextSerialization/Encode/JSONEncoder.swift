@@ -28,7 +28,8 @@ typealias JSON = [String: Any]
 struct JSONEncoder: EditorContentEncoder {
     let textEncoders: [EditorContent.Name: AnyEditorTextEncoding<JSON>] = [
         EditorContent.Name.paragraph: AnyEditorTextEncoding(ParagraphEncoder()),
-        .text: AnyEditorTextEncoding(TextEncoder())
+        .text: AnyEditorTextEncoding(TextEncoder()),
+		.newline: AnyEditorTextEncoding(NewLineEncoder()),
     ]
 
 	let attachmentEncoders: [EditorContent.Name: AnyEditorContentAttachmentEncoding<JSON>] = [:]

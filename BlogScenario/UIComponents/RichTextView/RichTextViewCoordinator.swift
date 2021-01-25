@@ -50,11 +50,7 @@ extension RichTextViewCoordinator {
 		let value = view.transformContents(using: JSONEncoder())
 		let data = try! JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
 		let jsonString = String(data: data, encoding: .utf8)!
-		let printableContents = """
-			{ "contents":  \(jsonString) }
-		"""
-		print(printableContents)
-		text = printableContents
+		text = " { \"contents\":  \(jsonString) } "
 	}
 
 	func extractContents() {
@@ -72,9 +68,7 @@ extension RichTextViewCoordinator {
 			return
 		}
 
-		let decodedText = EditorContentJSONDecoder().decode(mode: .editor, maxSize: view.frame.size, value: encodedContents)
-		print(text)
-		view.attributedText = decodedText
+		view.attributedText = EditorContentJSONDecoder().decode(mode: .editor, maxSize: view.frame.size, value: encodedContents)
 	}
 }
 

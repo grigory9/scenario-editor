@@ -18,6 +18,8 @@
 		5220FE5625B9B1940078EA20 /* ParagraphEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE5125B9B1940078EA20 /* ParagraphEncoder.swift */; };
 		5220FE5825B9B1940078EA20 /* ParagraphStyle+Codables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE5325B9B1940078EA20 /* ParagraphStyle+Codables.swift */; };
 		5220FE5925B9B1940078EA20 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE5425B9B1940078EA20 /* JSONEncoder.swift */; };
+		5220FE6125BAD17B0078EA20 /* ScenarioDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE6025BAD17B0078EA20 /* ScenarioDto.swift */; };
+		5220FE6525BAD1840078EA20 /* ScenarioContentDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5220FE6425BAD1840078EA20 /* ScenarioContentDto.swift */; };
 		522A754625B2A6D20010AB7F /* ToolbarEditorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A754525B2A6D20010AB7F /* ToolbarEditorButton.swift */; };
 		522A754B25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A754A25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift */; };
 		5247D0A325B37CF400028489 /* ListFormattingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247D0A225B37CF400028489 /* ListFormattingProvider.swift */; };
@@ -38,11 +40,12 @@
 		525CB73325A893B000DFBFD6 /* UmaruGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 525CB73225A893AF00DFBFD6 /* UmaruGif.gif */; };
 		525CB73A25A8981800DFBFD6 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CB73925A8981700DFBFD6 /* Scenario.swift */; };
 		525CB73E25A898D700DFBFD6 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CB73D25A898D700DFBFD6 /* ModelData.swift */; };
-		525CB74125A8994300DFBFD6 /* scenarioData.json in Resources */ = {isa = PBXBuildFile; fileRef = 525CB74025A8994300DFBFD6 /* scenarioData.json */; };
 		525CB74425A89AC400DFBFD6 /* ScenarioRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CB74325A89AC400DFBFD6 /* ScenarioRowView.swift */; };
 		525CB74725A89DEB00DFBFD6 /* ScenarioList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CB74625A89DEB00DFBFD6 /* ScenarioList.swift */; };
 		525CB74A25A89FAA00DFBFD6 /* ScenarioDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CB74925A89FAA00DFBFD6 /* ScenarioDetailsView.swift */; };
 		525CB74E25A8AC9600DFBFD6 /* ScenarioContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525CB74D25A8AC9600DFBFD6 /* ScenarioContent.swift */; };
+		5262A04E25BEC92300532DD2 /* NewLineEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262A04D25BEC92300532DD2 /* NewLineEncoder.swift */; };
+		5262A05125BEC9FA00532DD2 /* NewLineDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5262A05025BEC9FA00532DD2 /* NewLineDecoder.swift */; };
 		52E8F73625ADA86B00319E6C /* ViewHeightKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8F73525ADA86B00319E6C /* ViewHeightKey.swift */; };
 		52E8F73A25ADB6DD00319E6C /* RichTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8F73925ADB6DD00319E6C /* RichTextView.swift */; };
 		52E8F74225AE115900319E6C /* Proton in Frameworks */ = {isa = PBXBuildFile; productRef = 52E8F74125AE115900319E6C /* Proton */; };
@@ -62,6 +65,8 @@
 		5220FE5125B9B1940078EA20 /* ParagraphEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphEncoder.swift; sourceTree = "<group>"; };
 		5220FE5325B9B1940078EA20 /* ParagraphStyle+Codables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ParagraphStyle+Codables.swift"; sourceTree = "<group>"; };
 		5220FE5425B9B1940078EA20 /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		5220FE6025BAD17B0078EA20 /* ScenarioDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDto.swift; sourceTree = "<group>"; };
+		5220FE6425BAD1840078EA20 /* ScenarioContentDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioContentDto.swift; sourceTree = "<group>"; };
 		522A754525B2A6D20010AB7F /* ToolbarEditorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarEditorButton.swift; sourceTree = "<group>"; };
 		522A754A25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarEditorButtonFactory.swift; sourceTree = "<group>"; };
 		5247D0A225B37CF400028489 /* ListFormattingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFormattingProvider.swift; sourceTree = "<group>"; };
@@ -84,11 +89,12 @@
 		525CB73225A893AF00DFBFD6 /* UmaruGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = UmaruGif.gif; sourceTree = "<group>"; };
 		525CB73925A8981700DFBFD6 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		525CB73D25A898D700DFBFD6 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		525CB74025A8994300DFBFD6 /* scenarioData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = scenarioData.json; sourceTree = "<group>"; };
 		525CB74325A89AC400DFBFD6 /* ScenarioRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioRowView.swift; sourceTree = "<group>"; };
 		525CB74625A89DEB00DFBFD6 /* ScenarioList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioList.swift; sourceTree = "<group>"; };
 		525CB74925A89FAA00DFBFD6 /* ScenarioDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioDetailsView.swift; sourceTree = "<group>"; };
 		525CB74D25A8AC9600DFBFD6 /* ScenarioContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioContent.swift; sourceTree = "<group>"; };
+		5262A04D25BEC92300532DD2 /* NewLineEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLineEncoder.swift; sourceTree = "<group>"; };
+		5262A05025BEC9FA00532DD2 /* NewLineDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLineDecoder.swift; sourceTree = "<group>"; };
 		52E8F73525ADA86B00319E6C /* ViewHeightKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHeightKey.swift; sourceTree = "<group>"; };
 		52E8F73925ADB6DD00319E6C /* RichTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextView.swift; sourceTree = "<group>"; };
 		52E8F74525B071C100319E6C /* ExpandingRichTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingRichTextView.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				5220FE5125B9B1940078EA20 /* ParagraphEncoder.swift */,
 				5220FE5325B9B1940078EA20 /* ParagraphStyle+Codables.swift */,
 				5220FE5025B9B1940078EA20 /* TextEncoder.swift */,
+				5262A04D25BEC92300532DD2 /* NewLineEncoder.swift */,
 			);
 			path = Encode;
 			sourceTree = "<group>";
@@ -144,8 +151,18 @@
 				5220FE4125B9B1860078EA20 /* ParagraphStyleDecoder.swift */,
 				5220FE4425B9B1860078EA20 /* TextDecoder.swift */,
 				5220FE4325B9B1860078EA20 /* UIFontDecoder.swift */,
+				5262A05025BEC9FA00532DD2 /* NewLineDecoder.swift */,
 			);
 			path = Decode;
+			sourceTree = "<group>";
+		};
+		5220FE5F25BAD1690078EA20 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5220FE6025BAD17B0078EA20 /* ScenarioDto.swift */,
+				5220FE6425BAD1840078EA20 /* ScenarioContentDto.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		522A754925B2A7F10010AB7F /* ButtonsControlls */ = {
@@ -194,15 +211,15 @@
 		5251DE6925A786EE002128ED /* BlogScenario */ = {
 			isa = PBXGroup;
 			children = (
+				525CB73825A8980A00DFBFD6 /* Model */,
+				5220FE5F25BAD1690078EA20 /* Protocol */,
 				5247D0BE25B62EC600028489 /* Extensions */,
 				525CB73C25A898CE00DFBFD6 /* Utils */,
-				525CB73825A8980A00DFBFD6 /* Model */,
 				525CB73725A897FC00DFBFD6 /* Modules */,
 				525CB73625A897E300DFBFD6 /* UIComponents */,
 				5251DE6E25A786F1002128ED /* Assets.xcassets */,
 				525CB73225A893AF00DFBFD6 /* UmaruGif.gif */,
 				5251DE6A25A786EE002128ED /* BlogScenarioApp.swift */,
-				525CB74025A8994300DFBFD6 /* scenarioData.json */,
 				5251DE7325A786F1002128ED /* Info.plist */,
 				5251DE7025A786F1002128ED /* Preview Content */,
 			);
@@ -373,7 +390,6 @@
 				5251DE7225A786F1002128ED /* Preview Assets.xcassets in Resources */,
 				5251DE6F25A786F1002128ED /* Assets.xcassets in Resources */,
 				525CB73325A893B000DFBFD6 /* UmaruGif.gif in Resources */,
-				525CB74125A8994300DFBFD6 /* scenarioData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +415,7 @@
 				52E8F73625ADA86B00319E6C /* ViewHeightKey.swift in Sources */,
 				525CB74A25A89FAA00DFBFD6 /* ScenarioDetailsView.swift in Sources */,
 				5251DE6B25A786EE002128ED /* BlogScenarioApp.swift in Sources */,
+				5220FE6125BAD17B0078EA20 /* ScenarioDto.swift in Sources */,
 				5247D0B925B5F27C00028489 /* FontTraitCommands.swift in Sources */,
 				5220FE4A25B9B1860078EA20 /* UIFontDecoder.swift in Sources */,
 				5220FE5825B9B1940078EA20 /* ParagraphStyle+Codables.swift in Sources */,
@@ -412,10 +429,13 @@
 				5247D0BC25B5F2EB00028489 /* FontStyleCommands.swift in Sources */,
 				525CB72F25A8935C00DFBFD6 /* UmaruGifView.swift in Sources */,
 				5247D0B225B4A93700028489 /* EditorButton.swift in Sources */,
+				5220FE6525BAD1840078EA20 /* ScenarioContentDto.swift in Sources */,
 				525CB74425A89AC400DFBFD6 /* ScenarioRowView.swift in Sources */,
+				5262A05125BEC9FA00532DD2 /* NewLineDecoder.swift in Sources */,
 				522A754625B2A6D20010AB7F /* ToolbarEditorButton.swift in Sources */,
 				5220FE4E25B9B1860078EA20 /* JSONDecoder.swift in Sources */,
 				5220FE2325B83E370078EA20 /* TextFieldControl.swift in Sources */,
+				5262A04E25BEC92300532DD2 /* NewLineEncoder.swift in Sources */,
 				522A754B25B2A8050010AB7F /* ToolbarEditorButtonFactory.swift in Sources */,
 				5220FE4D25B9B1860078EA20 /* ParagraphDecoder.swift in Sources */,
 				525CB74725A89DEB00DFBFD6 /* ScenarioList.swift in Sources */,

@@ -9,29 +9,31 @@ import Foundation
 
 final class Scenario: ObservableObject, Identifiable, Hashable {
 
+	let id: UUID
+
 	@Published var name: String
 	@Published var content: ScenarioContent
 	@Published var snapshots: [ScenarioContent]
 
 	init(dto: ScenarioDto) {
-		self.name = dto.name
-		self.content = ScenarioContent(dto: dto.content)
-		self.snapshots = dto.snapshots.map { ScenarioContent(dto: $0) }
+		id = dto.id
+		name = dto.name
+		content = ScenarioContent(dto: dto.content)
+		snapshots = dto.snapshots.map { ScenarioContent(dto: $0) }
 	}
-	
+
+	init() {
+		id = UUID()
+		name = ""
+		content = ScenarioContent()
+		snapshots = []
+	}
+
 	static func == (lhs: Scenario, rhs: Scenario) -> Bool {
-		lhs.name == rhs.name
+		lhs.id == rhs.id
 	}
 
 	func hash(into hasher: inout Hasher) {
-		hasher.combine(self.name)
-		hasher.combine(self.content)
-		hasher.combine(self.snapshots)
+		hasher.combine(self.id)
 	}
-}
-
-struct ScenarioDto: Hashable, Codable {
-	var name: String
-	var content: ScenarioContentDto
-	var snapshots: [ScenarioContentDto]
 }
